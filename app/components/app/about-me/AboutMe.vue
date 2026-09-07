@@ -37,7 +37,7 @@ const list = computed(() => [
 		>
 			<img
 				src="/img/me.webp"
-				alt="alixan.kz"
+				:alt="$t('home.about.name')"
 				width="250"
 				height="250"
 				loading="lazy"
@@ -46,14 +46,14 @@ const list = computed(() => [
 
 			<div class="flex-1 space-y-3.5 max-md:p-4">
 				<div class="space-y-1.5">
-					<h2
+					<p
 						class="md:text-xl max-md:text-lg font-medium text-muted-foreground"
 					>
 						{{ $t('home.about.role') }}
-					</h2>
-					<h1 class="md:text-3xl max-md:text-2xl font-bold">
+					</p>
+					<h3 class="md:text-3xl max-md:text-2xl font-bold">
 						{{ $t('home.about.name') }}
-					</h1>
+					</h3>
 				</div>
 				<div class="space-y-2">
 					<p

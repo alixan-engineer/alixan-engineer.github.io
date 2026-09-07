@@ -204,6 +204,38 @@
 }
 
 /* Used for dialog, drawer and overlays. */
+.skip-link {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 100;
+	padding: 0.75rem 1rem;
+	color: var(--background);
+	background: var(--foreground);
+	border-radius: var(--radius);
+	transform: translateY(calc(-100% - 2rem));
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+:focus-visible {
+	outline: 2px solid var(--foreground) !important;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
 @utility backdrop {
 	@apply fixed inset-0 bg-black/30 dark:bg-black/80;
 }

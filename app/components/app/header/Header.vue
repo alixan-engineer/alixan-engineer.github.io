@@ -31,6 +31,8 @@ onBeforeUnmount(() => {
 			<Logo />
 			<IconButton
 				href="https://github.com/alixan-engineer"
+				:aria-label="$t('accessibility.github')"
+				rel="noreferrer"
 				target="_blank"
 				variant="ghost"
 				size="responsive"

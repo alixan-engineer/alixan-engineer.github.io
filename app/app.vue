@@ -7,10 +7,10 @@ const { locale } = useI18n();
 usePageMeta();
 
 // Init lang and favicon for html
-useHead({
+useHead(() => ({
 	htmlAttrs: { lang: locale.value },
 	link: favicon,
-});
+}));
 </script>
 
 <template>

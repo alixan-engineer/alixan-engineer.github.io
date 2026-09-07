@@ -23,6 +23,8 @@ const props = withDefaults(defineProps<AccordionProps>(), {
 	collapsible: true,
 });
 
+const accordionId = useId();
+
 const model = defineModel<AccordionValue | AccordionValue[] | null>({
 	default: null,
 });
@@ -63,8 +65,11 @@ const toggleItem = (item: AccordionItem): void => {
 
 <template>
 	<div class="w-full divide-y rounded-2xl border overflow-hidden">
-		<div v-for="item in items" :key="item.value">
+		<div v-for="(item, index) in items" :key="item.value">
 			<button
+				:id="`${accordionId}-trigger-${index}`"
+				:aria-expanded="isOpen(item.value)"
+				:aria-controls="`${accordionId}-panel-${index}`"
 				type="button"
 				:disabled="item.disabled"
 				:class="
@@ -81,6 +86,7 @@ const toggleItem = (item: AccordionItem): void => {
 					</slot>
 				</span>
 				<ChevronDown
+					aria-hidden="true"
 					:class="
 						cn(
 							'size-5 shrink-0 text-muted-foreground ',
@@ -90,7 +96,12 @@ const toggleItem = (item: AccordionItem): void => {
 				/>
 			</button>
 
-			<div v-if="isOpen(item.value)">
+			<div
+				v-show="isOpen(item.value)"
+				:id="`${accordionId}-panel-${index}`"
+				role="region"
+				:aria-labelledby="`${accordionId}-trigger-${index}`"
+			>
 				<div class="px-5 pb-5 text-lg font-light text-muted-foreground">
 					<slot name="content" :item="item">
 						{{ item.content ? $t(item.content) : '' }}

@@ -10,8 +10,8 @@ export const usePageMeta = (payload?: PageMetaOptions): void => {
 	const { t } = useI18n();
 	const route = useRoute();
 
-	const metaTitle = t(payload?.title || siteConfig.title);
-	const metaDescription = t(payload?.description || siteConfig.description);
+	const metaTitle = computed(() => t(payload?.title || siteConfig.title));
+	const metaDescription = computed(() => t(payload?.description || siteConfig.description));
 	const metaImage = payload?.img || siteConfig.ogImage;
 
 	useSeoMeta({
@@ -21,7 +21,8 @@ export const usePageMeta = (payload?: PageMetaOptions): void => {
 		ogSiteName: siteConfig.name,
 		ogTitle: metaTitle,
 		ogDescription: metaDescription,
-		ogUrl: siteConfig.url + route.path,
+		ogUrl: () => siteConfig.url + route.path,
+		robots: 'index, follow',
 		ogImage: metaImage,
 		ogImageType: 'image/png',
 		twitterCard: 'summary_large_image',

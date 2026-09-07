@@ -1,4 +1,12 @@
 {
+	"seo": {
+		"title": "Alikhan Zhumazhanov — Team Lead and Full Stack Developer in Kazakhstan {'|'} Alixan.kz",
+		"description": "10 years in IT and 7 years of commercial experience. My journey spans frontend and fullstack development, launching startups and working in banking. I build IT products from scratch: from idea and architecture to code, infrastructure and a functioning business."
+	},
+	"accessibility": {
+		"skipToContent": "Skip to main content",
+		"github": "Alikhan’s GitHub profile"
+	},
 	"home": {
 		"hero": {
 			"greeting": "Hi, I'm",

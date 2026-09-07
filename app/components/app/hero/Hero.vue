@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { ExternalLink, Sparkles } from '@lucide/vue';
 
-const list = ['React', 'Vue', 'Angular', 'Flutter', 'NestJS', 'MongoDB'];
+const list = ['React', 'Vue', 'Angular', 'Flutter', 'Node.js', 'Go'];
 </script>
 
 <template>
 	<div class="hero relative isolate h-170 overflow-hidden">
-		<div
-			class="hero-space hero-space--dark absolute inset-0 -z-10"
-		>
+		<div class="hero-space hero-space--dark absolute inset-0 -z-10">
 			<div class="hero-orb hero-orb--dark" />
 		</div>
-		<div
-			class="hero-space hero-space--light absolute inset-0 -z-10"
-		>
+		<div class="hero-space hero-space--light absolute inset-0 -z-10">
 			<div class="hero-orb hero-orb--light" />
 		</div>
 
@@ -30,7 +26,7 @@ const list = ['React', 'Vue', 'Angular', 'Flutter', 'NestJS', 'MongoDB'];
 			</div>
 
 			<div class="space-y-3">
-				<SectionTitle>{{ $t('home.hero.title') }}</SectionTitle>
+				<SectionTitle as="h1">{{ $t('home.hero.title') }}</SectionTitle>
 				<SectionSubtitle class="text-foreground/80! leading-7">
 					{{ $t('home.hero.description') }}
 				</SectionSubtitle>
